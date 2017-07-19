@@ -1,0 +1,86 @@
+
+.revealer {
+	position: absolute;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px); /* Firefox and Safari gap hack */
+	background: #fff;
+	top: -2px;
+	left: -2px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Direction control */
+.revealer--right {
+	transform-origin: 100% 50%;
+}
+
+.revealer--left {
+	transform-origin: 0% 50%;
+}
+
+.revealer--top {
+	transform-origin: 50% 0%;
+}
+
+.revealer--bottom {
+	transform-origin: 50% 100%;
+}
+
+.revealer--showX,
+.revealer--hideX,
+.revealer--showY,
+.revealer--hideY,
+.revealer--visible {
+	opacity: 1;
+}
+
+/* Hide from left/right */
+.revealer--hideX {
+	animation: hideX 0.8s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes hideX {
+	from {
+		transform: scale3d(0,1,1);
+	}
+	to {
+		transform: scale3d(1,1,1);
+	}
+}
+
+/* Show from left/right */
+.revealer--showX {
+	animation: showX 0.8s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes showX {
+	to {
+		transform: scale3d(0,1,1);
+	}
+}
+
+/* Hide from top/bottom */
+.revealer--hideY {
+	animation: hideY 0.8s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes hideY {
+	from {
+		transform: scale3d(1,0,1);
+	}
+	to {
+		transform: scale3d(1,1,1);
+	}
+}
+
+/* Show from top/bottom */
+.revealer--showY {
+	animation: showY 0.8s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes showY {
+	to {
+		transform: scale3d(1,0,1);
+	}
+}
